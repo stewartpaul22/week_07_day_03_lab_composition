@@ -16,7 +16,7 @@ public class ComputerTest {
     public void before() {
         monitor = new Monitor(22, 786432);
         mouse = new Mouse("Microsoft", "Ergomouse", "wired");
-        computer = new Computer(8, 512, monitor, mouse);
+        computer = new Computer(8, 512, monitor, mouse, null);
     }
 
     @Test
@@ -43,14 +43,14 @@ public class ComputerTest {
     @Test
     public void canOutputDataViaPrinter() {
         Printer printer = new Printer("Epsom", "Sylus", 120, 4);
-        Computer computer2 = new Computer(8, 512, printer, mouse);
+        Computer computer2 = new Computer(8, 512, printer, mouse, null);
         assertEquals("printing: space invaders", computer2.outputData("space invaders"));
     }
 
     @Test
     public void canOutputDataViaSpeaker() {
         Speaker speaker = new Speaker(11);
-        Computer computer2 = new Computer(8, 512, speaker, mouse);
+        Computer computer2 = new Computer(8, 512, speaker, mouse, null);
         assertEquals("playing: Beep!", computer2.outputData("Beep!"));
 
     }
@@ -70,7 +70,7 @@ public class ComputerTest {
 
     @Test
     public void canReceiveData() {
-        Computer computer2 = new Computer(8, 512, monitor, mouse);
+        Computer computer2 = new Computer(8, 512, monitor, mouse, null);
         assertEquals("button being clicked: right", computer2.receiveData("right"));
     }
 
@@ -78,5 +78,10 @@ public class ComputerTest {
     public void canSetInputDevice() {
         computer.setInputDevice(mouse);
         assertEquals("button being clicked: right", computer.receiveData("right"));
+    }
+
+    @Test
+    public void hasDataStream() {
+        assertEquals(null, computer.getDataStream());
     }
 }
