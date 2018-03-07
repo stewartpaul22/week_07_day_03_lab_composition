@@ -1,8 +1,6 @@
+import behaviours.IInput;
 import behaviours.IOutput;
-import device_management.Computer;
-import device_management.Monitor;
-import device_management.Printer;
-import device_management.Speaker;
+import device_management.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -12,11 +10,13 @@ import static org.junit.Assert.assertNotNull;
 public class ComputerTest {
     Computer computer;
     Monitor monitor;
+    Mouse mouse;
 
     @Before
     public void before() {
         monitor = new Monitor(22, 786432);
-        computer = new Computer(8, 512, monitor);
+        mouse = new Mouse("Microsoft", "Ergomouse", "wired");
+        computer = new Computer(8, 512, monitor, mouse);
     }
 
     @Test
@@ -43,14 +43,14 @@ public class ComputerTest {
     @Test
     public void canOutputDataViaPrinter() {
         Printer printer = new Printer("Epsom", "Sylus", 120, 4);
-        Computer computer2 = new Computer(8, 512, printer);
+        Computer computer2 = new Computer(8, 512, printer, mouse);
         assertEquals("printing: space invaders", computer2.outputData("space invaders"));
     }
 
     @Test
     public void canOutputDataViaSpeaker() {
         Speaker speaker = new Speaker(11);
-        Computer computer2 = new Computer(8, 512, speaker);
+        Computer computer2 = new Computer(8, 512, speaker, mouse);
         assertEquals("playing: Beep!", computer2.outputData("Beep!"));
 
     }
@@ -60,5 +60,23 @@ public class ComputerTest {
         Printer printer = new Printer("Epsom", "Sylus", 120, 4);
         computer.setOutputDevice(printer);
         assertEquals("printing: space invaders", computer.outputData("space invaders"));
+    }
+
+    @Test
+    public void hasInputDevice() {
+        IInput inputDevice = computer.getInputDevice();
+        assertNotNull(inputDevice);
+    }
+
+    @Test
+    public void canReceiveData() {
+        Computer computer2 = new Computer(8, 512, monitor, mouse);
+        assertEquals("button being clicked: right", computer2.receiveData("right"));
+    }
+
+    @Test
+    public void canSetInputDevice() {
+        computer.setInputDevice(mouse);
+        assertEquals("button being clicked: right", computer.receiveData("right"));
     }
 }
