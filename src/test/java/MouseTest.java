@@ -27,4 +27,9 @@ public class MouseTest {
     public void hasConnectionType() {
         assertEquals("cordless", mouse.getConnectionType());
     }
+
+    @Test
+    public void canMove() {
+        assertEquals("moving", mouse.move());
+    }
 }

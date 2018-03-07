@@ -12,4 +12,8 @@ public class Mouse extends InputDevice {
     public String getConnectionType() {
         return this.connectionType;
     }
+
+    public String move() {
+        return "moving";
+    }
 }
