@@ -27,4 +27,9 @@ public class KeyboardTest {
     public void hasLayout() {
         assertEquals("ergonomic", keyboard.getLayout());
     }
+
+    @Test
+    public void canType() {
+        assertEquals("typing", keyboard.type());
+    }
 }

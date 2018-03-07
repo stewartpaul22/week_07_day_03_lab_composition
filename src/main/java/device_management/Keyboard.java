@@ -12,4 +12,8 @@ public class Keyboard extends InputDevice {
     public String getLayout() {
         return this.layout;
     }
+
+    public String type() {
+        return "typing";
+    }
 }
