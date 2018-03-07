@@ -17,4 +17,9 @@ public class KeyboardTest {
     public void hasMake() {
         assertEquals("Logitec", keyboard.getMake());
     }
+
+    @Test
+    public void hasModel() {
+        assertEquals("ST101", keyboard.getModel());
+    }
 }
