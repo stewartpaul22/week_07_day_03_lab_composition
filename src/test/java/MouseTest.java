@@ -22,4 +22,9 @@ public class MouseTest {
     public void hasModel() {
         assertEquals("Ergomouse", mouse.getModel());
     }
+
+    @Test
+    public void hasConnectionType() {
+        assertEquals("cordless", mouse.getConnectionType());
+    }
 }

@@ -8,4 +8,8 @@ public class Mouse extends InputDevice {
         super(make, model);
         this.connectionType = connectionType;
     }
+
+    public String getConnectionType() {
+        return this.connectionType;
+    }
 }
