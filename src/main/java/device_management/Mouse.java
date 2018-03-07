@@ -1,6 +1,8 @@
 package device_management;
 
-public class Mouse extends InputDevice {
+import behaviours.IInput;
+
+public class Mouse extends InputDevice implements IInput {
 
     private String connectionType;
 
@@ -15,5 +17,10 @@ public class Mouse extends InputDevice {
 
     public String move() {
         return "moving";
+    }
+
+    @Override
+    public String sendData(String data) {
+        return "button being clicked: " + data;
     }
 }

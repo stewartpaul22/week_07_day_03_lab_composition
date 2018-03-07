@@ -32,4 +32,9 @@ public class MouseTest {
     public void canMove() {
         assertEquals("moving", mouse.move());
     }
+
+    @Test
+    public void canSendData() {
+        assertEquals("button being clicked: right", mouse.sendData("right"));
+    }
 }

@@ -1,6 +1,8 @@
 package device_management;
 
-public class Keyboard extends InputDevice {
+import behaviours.IInput;
+
+public class Keyboard extends InputDevice implements IInput {
 
     private String layout;
 
@@ -15,5 +17,10 @@ public class Keyboard extends InputDevice {
 
     public String type() {
         return "typing";
+    }
+
+    @Override
+    public String sendData(String data) {
+        return "key being pressed: " + data;
     }
 }

@@ -32,4 +32,9 @@ public class KeyboardTest {
     public void canType() {
         assertEquals("typing", keyboard.type());
     }
+
+    @Test
+    public void canSendData() {
+        assertEquals("key being pressed: t", keyboard.sendData("t"));
+    }
 }
