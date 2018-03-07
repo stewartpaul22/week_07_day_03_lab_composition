@@ -1,5 +1,8 @@
 import device_management.Mouse;
 import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class MouseTest {
 
@@ -7,6 +10,11 @@ public class MouseTest {
 
     @Before
     public void setUp() throws Exception {
-        mouse = new Mouse();
+        mouse = new Mouse("Microsoft", "Ergomouse", "cordless");
+    }
+
+    @Test
+    public void hasMake() {
+        assertEquals("Microsoft", mouse.getMake());
     }
 }
