@@ -17,4 +17,9 @@ public class MouseTest {
     public void hasMake() {
         assertEquals("Microsoft", mouse.getMake());
     }
+
+    @Test
+    public void hasModel() {
+        assertEquals("Ergomouse", mouse.getModel());
+    }
 }
