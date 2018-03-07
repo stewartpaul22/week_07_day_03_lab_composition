@@ -22,4 +22,9 @@ public class KeyboardTest {
     public void hasModel() {
         assertEquals("ST101", keyboard.getModel());
     }
+
+    @Test
+    public void hasLayout() {
+        assertEquals("ergonomic", keyboard.getLayout());
+    }
 }

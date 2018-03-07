@@ -8,4 +8,8 @@ public class Keyboard extends InputDevice {
         super(make, model);
         this.layout = layout;
     }
+
+    public String getLayout() {
+        return this.layout;
+    }
 }
